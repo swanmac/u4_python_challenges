@@ -4,6 +4,52 @@
 #  1) The Time Stone: Lets get cosmic here and begin working with Time.
 
 # - First, lets create a function that converts Minutes to Seconds (1 ->60, 5 -> 300)
+# ====================
+# def convert_to_preferred_format(sec):
+#    sec = sec % (24 * 3600)
+#    hour = sec // 3600
+#    sec %= 3600
+#    min = sec // 60
+#    sec %= 60
+#    print("seconds value in hours:",hour)
+#    print("seconds value in minutes:",min)
+#    return "%02d:%02d:%02d" % (hour, min, sec) 
+
+# n = 10000
+# print("Time in preferred format :-",convert_to_preferred_format(n))
+# ==================
+# def convert_min_to_sec(sec):
+    # sec = sec % (24 * 3600)
+    # hour = sec // 3600
+    # sec %= 3600
+#     min = sec // 60
+#     sec %= 60
+#     print("minutes value in seconds:",sec)
+#     print("seconds value in minutes:",min)
+#     return (min, sec)
+# n = 60   
+# print("minute to seconds :-",convert_min_to_sec(n)) 
+# ==================
+from datetime import timedelta
+
+def get_time_hh_mm_ss(sec):
+    # create timedelta and convert it into string
+    td_str = str(timedelta(seconds=sec))
+    print('Time in seconds:', sec)
+
+    # split string into individual component
+    x = td_str.split(':')
+    print('Time in hh:mm:ss:', x[0], 'Hours', x[1], 'Minutes', x[2], 'Seconds')
+
+# get_time_hh_mm_ss(29500)
+# get_time_hh_mm_ss(7500040)
+# get_time_hh_mm_ss(60)
+# get_time_hh_mm_ss(3600)
+# get_time_hh_mm_ss(86400)
+# get_time_hh_mm_ss(2592000)
+
+
+
 # -  Then take it up a step further, converting Hours into seconds (1 -> 3600)
 # -  We're on the right track here, how many seconds are in a day
 # - How many Hours are in the month of June? 
@@ -16,6 +62,14 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+# Time in seconds: 60   
+# Time in hh:mm:ss: 0 Hours 01 Minutes 00 Seconds
+# Time in seconds: 3600
+# Time in hh:mm:ss: 1 Hours 00 Minutes 00 Seconds
+# Time in seconds: 86400
+# Time in hh:mm:ss: 1 day, 0 Hours 00 Minutes 00 Seconds
+# Time in seconds: 2592000
+# Time in hh:mm:ss: 30 days, 0 Hours 00 Minutes 00 Seconds  (June)
 # ---------------------------------
 
 
@@ -28,6 +82,11 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def middle(string):
+    if len(string) % 2 == 0:
+        return ""
+    return string[len(string)//2]
+print(middle("abc"))
 # ---------------------------------
 
 
@@ -37,6 +96,13 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def maskify(cc):
+    str = ''
+    for char in cc[:-4]:
+        str += '#'
+    str += cc[-4:]
+    return str
+print(maskify("4259 9826 4026 9299"))    
 # ---------------------------------
 
 
@@ -63,6 +129,18 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def online_count(my_dict):
+    count=0
+    for i in my_dict.values():
+        if i == "online":
+            count+=1
+    return count 
+
+my_dict = {"John":"online",
+            "Paul":"online",
+            "Ringo":"offline",}
+ans = online_count(my_dict)            
+print(ans)
 # ---------------------------------
 
 
@@ -73,6 +151,16 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def discount(price, off):
+    percent= off/100
+    #print(percent)
+    amt_discount = percent * price
+    # print(amt_discount)
+    savings = price - amt_discount
+    print(savings)
+
+    # discount(100, 20)
+    # discount(80, 20)
 # ---------------------------------
 
 
@@ -84,6 +172,11 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
+def pythagoras(leg1, leg2):
+    side1 = leg1 ** 2
+    side2 = leg2 ** 2
+    hypotenouse = side1 + side2
+    print(hypotenouse)
 # ---------------------------------
 
 
@@ -97,4 +190,10 @@
 
 # ---------------------------------
 #      Solution Goes Here ->
-# ---------------------------------
+def fib(num1, num2):
+    count = 9
+    fib = [num1, num2]
+    for each in range(0,count+1):
+        fib.append(fib[-1]+fib[-2])
+        return fib
+        # ---------------------------------
